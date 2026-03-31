@@ -90,7 +90,7 @@ Scaling the core engine to the **Virtex UltraScale+ VU9P** architecture. In this
 
 * **Timing Met**: **WNS (Worst Negative Slack)** secured at **2.011 ns**. **WHS (Worst Hold Slack)** locked at **0.159 ns**.
 * **Logic Analysis**: The baseline **Five-FF Stage** demonstrates deterministic stability at **322.56 MHz**. However, the **Net Delay** (0.760 ns) now significantly outweighs the **Logic Delay** (0.217 ns). This proves that interconnect routing, rather than gate switching, is the dominant factor in the **36ns** path.
-* **Physical Layer Isolation**: We implemented strict **Pblock** constraints to anchor the parsing logic within the same **SLR** (Super Logic Region) as the **GTY Quad**. By pinning cells to specific **Clock Regions (X5Y10:X6Y14)**, we have physically bypassed the **SLL (Super Long Line)** cross-SLR penalty, which typically incurs a 1.5 ns - 2.2 ns overhead.
+* **Physical Layer Isolation**: We implemented strict **Pblock** constraints to anchor the parsing logic within the same **SLR** (Super Logic Region) **SLL (Super Long Line)** cross-SLR penalty, which typically incurs a 1.5 ns - 2.2 ns overhead.
 
 ### Stage 2: High-Fanout Congestion Management & Routing Matrix Pressure
 
