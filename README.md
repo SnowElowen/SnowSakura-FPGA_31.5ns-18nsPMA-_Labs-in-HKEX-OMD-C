@@ -140,6 +140,7 @@ Under the high-frequency heartbeat of **322.26MHz**, I saw through the automated
 This period of extreme **Physical Layer** squeezing has allowed me to truly achieve absolute control over every metal routing trace and every internal **Switchbox**. The single-path, low-level foundation for handling the **HKEX OMD-C** protocol is now rock-solid.
 <img width="1059" height="567" alt="Snipaste_2026-03-31_23-39-34" src="https://github.com/user-attachments/assets/675dee75-401b-4367-a812-52f95b177943" />
 
+<img width="2057" height="996" alt="image" src="https://github.com/user-attachments/assets/13a22890-0a25-494c-ae6e-c1f6e36d687a" />
 
 
 
