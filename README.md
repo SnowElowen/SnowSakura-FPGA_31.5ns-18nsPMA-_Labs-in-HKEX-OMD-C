@@ -104,3 +104,19 @@ As the **OMD-C** parsing tree expands, **High Fanout** nodes (Fanout > 12) begin
     * Any control signal (e.g., `packet_valid`, `sof_detect`) with a fanout exceeding 12 is flagged for manual **Register Replication**. 
     * We prohibit the EDA tool from "lazy-routing" critical enable signals across the die. Instead, we force physical replicas of the **FF** to reside immediately adjacent to their target **LUT** clusters using `(* MAX_FANOUT = 12 *)` attributes.
 * **Strategic Buffer**: Maintaining a **2.011 ns** slack is not just for timing closure; it is a critical buffer for the upcoming **Order Book** parallel search logic. In the **VU9P** environment, **Fanout** is not a mere routing statistic—it is a direct threat to the **Zero Jitter** mandate.
+  ### Stage 2: High-Fanout Congestion Management & Routing Matrix Pressure
+<img width="807" height="499" alt="Snipaste_2026-03-31_21-50-32" src="https://github.com/user-attachments/assets/a5823876-3494-406c-a991-62202b333b4e" />
+
+
+
+As the **OMD-C** parsing tree expands, **High-Fanout** nodes (Fanout > 12) exert immense pressure on the **Routing Matrix**. In high-density devices like the **VU9P** or **ZU15EG**, even moderate fanout forces the router to bridge multiple **CLEM** tiles, leading to unpredictable **Timing Skew**.
+
+* **Metric**: Achieved **0 Failing Endpoints** across all initial baseline paths.
+* **Fanout Governance**: 
+    * Any control signal (e.g., `packet_valid`, `sof_detect`) with a fanout exceeding 12 is flagged for **Manual Register Replication**.
+    * We strictly prohibit the EDA tool from "lazy-routing" critical **Enable** signals across the die. Instead, we enforce physical proximity by placing **FF** replicas immediately adjacent to their target **LUT** clusters using `(* MAX_FANOUT = 12 *)` attributes.
+* **Strategic Buffer**: Maintaining a **2.011 ns** slack is not merely for timing closure; it serves as a critical buffer for the upcoming **Order Book** parallel search logic. In a **VU9P** environment, **Fanout** is not just a routing statistic—it is a direct threat to the **Zero Jitter** mandate.
+
+---
+
+**This demonstrates that true engineering excellence is not derived from chasing the latest architecture, but from absolute mastery over the Physical Layer.** While automated black-box tools struggle with stochastic delays under **Routing Matrix** pressure, only precise control over physical hardware resources ensures dominance in the nanosecond-scale battlefield.
