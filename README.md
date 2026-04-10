@@ -141,9 +141,16 @@ This period of extreme **Physical Layer** squeezing has allowed me to truly achi
 
 <img width="2057" height="996" alt="image" src="https://github.com/user-attachments/assets/13a22890-0a25-494c-ae6e-c1f6e36d687a" />
 
-New Simulation
+#### New Simulation
 <img width="1102" height="544" alt="Snipaste_2026-04-11_02-34-34" src="https://github.com/user-attachments/assets/4b26d169-1d64-4091-823c-cb75858f31ca" />
 <img width="1110" height="735" alt="Snipaste_2026-04-11_03-05-14" src="https://github.com/user-attachments/assets/c923b34a-d88c-4106-a2ae-c7aaa1ba1a93" />
+* This repository hosts a high-performance OMD-C (Optimized Message Data-Cast) hardware parser and framer, engineered for sub-nanosecond precision in High-Frequency Trading (HFT) environments. By utilizing GTH Transceiver PMA/PCS Bypass (Raw Mode), this architecture achieves a deterministic U-turn latency that pushes the physical limits of the 16nm FinFET fabric.*
+* Zero-Wait Predictive Barrel Shifter: Implements a combinatorial 128-to-64 bit sliding window to resolve bit-slip offsets in Raw Mode without adding a single clock cycle of latency.*
+* Parallel Preamble Sniffing: Utilizes a high-speed pattern matching array to detect the SFD (0xD5) across all 8 byte-lanes simultaneously, ensuring immediate frame synchronization.*
+* CARRY8-Optimized Parsing: Hardware-mapped 16-bit magnitude comparators for MsgType and MsgLen validation, achieving logic levels $< 4$ for maximum timing closure headroom*
+* Deterministic Pipeline: A strictly enforced 5-FF Stage path (4-cycle RX, 1-cycle TX) ensures zero-jitter response times, critical for competitive market data feedback loops.*
+
+
 
 
 
