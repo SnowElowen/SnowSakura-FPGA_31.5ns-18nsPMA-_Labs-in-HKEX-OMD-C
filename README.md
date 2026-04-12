@@ -131,13 +131,13 @@ Under the high-frequency heartbeat of **322.26MHz**, I saw through the automated
 
 #### Absolute Mastery over the Physical Layer
 This period of extreme **Physical Layer** squeezing has allowed me to truly achieve absolute control over every metal routing trace and every internal **Switchbox**. The single-path, low-level foundation for handling the **HKEX OMD-C** protocol is now rock-solid.
-[new_art](utou_8.png)
+![new_art](utou_8.png)
 
-[new_art](yuki_9.png)
+![new_art](yuki_9.png)
 
 #### New Simulation
-[SIM](10sim2_1.png)
-[SIM](11sim2_2.png)
+![SIM](10sim2_1.png)
+![SIM](11sim2_2.png)
 ###  Technical Specification & Performance Edge
 
 * **Sub-Nanosecond OMD-C Gateway** — This repository hosts a high-performance OMD-C (Optimized Message Data-Cast) hardware parser and framer, engineered for sub-nanosecond precision in High-Frequency Trading (HFT) environments. By utilizing GTH Transceiver PMA/PCS Bypass (Raw Mode), this architecture achieves a deterministic U-turn latency that pushes the physical limits of the 16nm FinFET fabric.
