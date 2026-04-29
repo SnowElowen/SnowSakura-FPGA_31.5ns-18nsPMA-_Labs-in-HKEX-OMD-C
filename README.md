@@ -23,7 +23,7 @@ Relying on Vivado's Auto-Router for OMD-C parsing is a death sentence. To squeez
 
 ### Stage 1: Datapath Routing & Net Delay Suppression
 
-![data](玉树樱_1.jpg)
+![data](img/玉树樱_1.jpg)
 
 
 The raw battle between **Logic Delay** and **Net Delay**. When operating in the `gt_txusrclk2` domain at 322MHz, the propagation delay across the silicon is your biggest enemy.
@@ -31,17 +31,16 @@ The raw battle between **Logic Delay** and **Net Delay**. When operating in the 
 * **Logic**: If you let the GUI decide your Placement, your Net Delay will spike, and your 31.5ns target will be shattered by routing congestion.
 
 ### Stage 2: Floorplanning & Initial Timing Closure
-![Data_Path_Logic](tamakisakura2_.jpg)
-
+![Data_Path_Logic](img/tamakisakura2_.jpg)
 Initial logic mapping and physical isolation. 
 * **Timing Met**: **WNS (Worst Negative Slack)** secured at **0.708 ns**. **WHS (Worst Hold Slack)** tightly locked at **0.024 ns**.
 * **Logic**: The logic cells (CLEM) are tightly packed to minimize interconnect latency. This is not arbitrary; this is the result of strict **Pblock** constraints. Zero failing endpoints mean the Triple-FF synchronization logic is physically solid.
 
 ### Stage 3: Full Pipeline Squeeze @ 322MHz
 
-![Timing_Summary](苺氷えな_3.jpg)
+![Timing_Summary](img/苺氷えな_3.jpg)
 
-![Clock_Tree](4Itigoriena_sim1.png)
+![Clock_Tree](img/4ltigoriena_sim1.png)
 
 As the parsing logic scales, the timing window shrinks to its absolute physical limit.
 * **Timing Met**: **WNS** squeezed to **0.472 ns**, **WHS** at **0.030 ns**. 
@@ -57,7 +56,7 @@ As the parsing logic scales, the timing window shrinks to its absolute physical 
 
 #### I. Latency Validation: Waveform Snapshot
 We are running `GTH Raw Mode` on the Ultrascale+ architecture, stripping away all non-essential protocol overhead (e.g., standard 802.3 buffers, PCS alignment primitives) for direct hardware parallel data access. 
-![Physical_Mapping](enasim4x2_.png)
+![Physical_Mapping](img/enasim4x2_.png)
 
 
 
@@ -65,7 +64,7 @@ We are running `GTH Raw Mode` on the Ultrascale+ architecture, stripping away al
 
 #### II. Implementation Details: Synthesis Schematic
 This isn't generic RTL synthesis; this is **direct physical mapping**. We are manually configuring registers (`mock_gth_data_reg`) and logic gates to absolutely minimize interconnect routing delay at the silicon level.
-![Manual_Routing](朽木冬子_5.png)
+![Manual_Routing](img/朽木冬子_5.png)
 
 
 
@@ -91,7 +90,7 @@ Scaling the core engine to the **Virtex UltraScale+ VU9P** architecture. In this
 
 ### Stage 2: High-Fanout Congestion Management & Routing Matrix Pressure
 
-![Output_Waveform](tkyou_6.png)
+![Output_Waveform](img/tkyou_6.png)
 
 As the **OMD-C** parsing tree expands, **High Fanout** nodes (Fanout > 12) begin to strain the **Routing Matrix**. On a high-density device like the **VU9P**, even moderate fanout forces the router to bridge multiple **CLEM** tiles, leading to unpredictable timing skew.
 
@@ -101,7 +100,7 @@ As the **OMD-C** parsing tree expands, **High Fanout** nodes (Fanout > 12) begin
     * We prohibit the EDA tool from "lazy-routing" critical enable signals across the die. Instead, we force physical replicas of the **FF** to reside immediately adjacent to their target **LUT** clusters using `(* MAX_FANOUT = 12 *)` attributes.
 * **Strategic Buffer**: Maintaining a **2.011 ns** slack is not just for timing closure; it is a critical buffer for the upcoming **Order Book** parallel search logic. In the **VU9P** environment, **Fanout** is not a mere routing statistic—it is a direct threat to the **Zero Jitter** mandate.
   ### Stage 2: High-Fanout Congestion Management & Routing Matrix Pressure
-![rooting](shio_7.png)
+![rooting](img/shio_7.png)
 
 
 
@@ -131,13 +130,13 @@ Under the high-frequency heartbeat of **322.26MHz**, I saw through the automated
 
 #### Absolute Mastery over the Physical Layer
 This period of extreme **Physical Layer** squeezing has allowed me to truly achieve absolute control over every metal routing trace and every internal **Switchbox**. The single-path, low-level foundation for handling the **HKEX OMD-C** protocol is now rock-solid.
-![new_art](utou_8.png)
+![new_art](img/utou_8.png)
 
-![new_art](yuki_9.png)
+![new_art](img/yuki_9.png)
 
 #### New Simulation
-![SIM](10sim2_1.png)
-![SIM](11sim2_2.png)
+![SIM](img/10sim2_1.png)
+![SIM](img/11sim2_2.png)
 ###  Technical Specification & Performance Edge
 
 * **Sub-Nanosecond OMD-C Gateway** — This repository hosts a high-performance OMD-C (Optimized Message Data-Cast) hardware parser and framer, engineered for sub-nanosecond precision in High-Frequency Trading (HFT) environments. By utilizing GTH Transceiver PMA/PCS Bypass (Raw Mode), this architecture achieves a deterministic U-turn latency that pushes the physical limits of the 16nm FinFET fabric.
@@ -152,14 +151,14 @@ This period of extreme **Physical Layer** squeezing has allowed me to truly achi
 * **Logic Level = 0** — The signal launches from **RX** with zero logic gate attrition, driving straight into the **TX** core relying purely on bare **Copper Traces**.
 * **Worst Hold Slack (WHS): 0.009 ns** — A mere 9 picoseconds! This means our parsing logic has been relentlessly pinned at absolute zero distance to the physical pins, perfectly illustrating what "flying close to the ground" means in **HFT**.
 ### Next Use python Test
-![SIM](pythontest_1.png)
+![SIM](img/pythontest_1.png)
 
 ### ### Major Milestone: IEEE 802.3 Framework Refactor & OMD-C Throughput Breakthrough
 
 **Current Status: v0.7-Alpha (Refactored)**
-![Overview](over1.png)
-![Python_Sim_1](pythonsim2.png)
-![Python_Sim_2](pythonsim2_2.png)
+![Overview](img/over1.png)
+![Python_Sim_1](img/pythonsim2.png)
+![Python_Sim_2](img/pythonsim2_2.png)
 
 
 
@@ -179,7 +178,7 @@ Following the initial breakthrough, I’ve pushed the **SnowSakura-FPGA** archit
 
 I have officially achieved **9,974/10,202** packet captures (97.8% success rate) under extreme physical constraints. To the community and fellow HFT architects: **The Testbench and Raw Data are now public.** If you think your parser can handle the heat of a real-world HKEX line, feel free to clone and run the simulation yourself.
 
-![Vivado_Sim_1](12sim3_.png)
+![Vivado_Sim_1](img/12sim3_.png)
 
 ###  What’s inside the Stress Test? (Why most parsers will fail)
 
@@ -190,7 +189,7 @@ This isn't your typical "ideal world" simulation. To replicate the brutal enviro
 *   **Sub-nanosecond Phase Shifts**: The data injection is randomized to hit the clock edges at the worst possible moments, testing the absolute limits of metastability recovery.
 *   **Raw Mode Data Stream**: Using the provided `raw_data.hex`, the test forces you to deal with raw bitstreams directly from the transceiver, bypassing vendor-specific IP "black boxes" to achieve the **36ns-37ns** latency boundary.
 
-![Vivado_Sim_2](13sim3_2.png)
+![Vivado_Sim_2](img/13sim3_2.png)
 
 ### The Goal: The Final 2.2%
 
@@ -203,7 +202,7 @@ Currently, the **Five-FF** stage architecture handles **97.8%** of the burst und
 
 If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-wire latency, let’s talk.
 
-![Vivado_Sim_3](14sim3_3.png)
+![Vivado_Sim_3](img/14sim3_3.png)
 
 ###  Repository Structure (Simulation)
 - `/sim/tb_omdc_top.v` : The high-precision physical layer testbench.
