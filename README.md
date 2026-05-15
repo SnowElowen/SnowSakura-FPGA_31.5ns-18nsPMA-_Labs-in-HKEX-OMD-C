@@ -215,8 +215,6 @@ If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-w
 ###  Repository Structure (Simulation)
 - `/sim/tb_omdc_top.v` : The high-precision physical layer testbench.
 - `/sim/raw_data.hex` : 100,00lines of OMD-C raw binary stream.
-
-- 
 ### The "Zero-Detour" ManifestoThe "Zero-Detour" Manifesto
 Look at these Metal Layers. 
 Most people let the tool 'optimize' their paths, resulting in a messy 'Z' or 'S' shape that introduces uncontrollable Jitter. 
