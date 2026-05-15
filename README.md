@@ -216,6 +216,23 @@ If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-w
 - `/sim/tb_omdc_top.v` : The high-precision physical layer testbench.
 - `/sim/raw_data.hex` : 100,00lines of OMD-C raw binary stream.
 
+- 
+### The "Zero-Detour" ManifestoThe "Zero-Detour" Manifesto
+Look at these Metal Layers. 
+Most people let the tool 'optimize' their paths, resulting in a messy 'Z' or 'S' shape that introduces uncontrollable Jitter. 
+**I don't.**
+![Vivado_routing1](img/routing1)
+This is a Hardened Physical Path crossing multiple Clock Regions with the absolute Minimal Manhattan Distance. 
+By manually locking the Interconnect Tiles and Switch Matrices via TCL, 
+I’ve eliminated every unnecessary Via and Detour.
+![Vivado_routing2](img/routing2)
+We’re talking about Sub-nanosecond Propagation Delay across the entire Die. 
+In the high-speed domain, this level of Skew control is what defines a deterministic system. 
+I’m not just writing Verilog; I’m performing Surgery on Silicon.
+
+This isn't a routing result; 
+it's a Physical Geometry enforced on the **ZU15EG** fabric. Every Metal Point is exactly where it must be to maintain the 322.56 MHz phase integrity.
+
 
 
 
