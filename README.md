@@ -221,11 +221,16 @@ If you can hit **100% zero-loss** without adding more than **37ns** of wire-to-w
 Look at these Metal Layers. 
 Most people let the tool 'optimize' their paths, resulting in a messy 'Z' or 'S' shape that introduces uncontrollable Jitter. 
 **I don't.**
-![Vivado_routing1](img/routing1)
+![Vivado_routing1](img/routing1.png)
+
+
+
 This is a Hardened Physical Path crossing multiple Clock Regions with the absolute Minimal Manhattan Distance. 
 By manually locking the Interconnect Tiles and Switch Matrices via TCL, 
 I’ve eliminated every unnecessary Via and Detour.
-![Vivado_routing2](img/routing2)
+![Vivado_routing2](img/routing2.png)
+
+
 We’re talking about Sub-nanosecond Propagation Delay across the entire Die. 
 In the high-speed domain, this level of Skew control is what defines a deterministic system. 
 I’m not just writing Verilog; I’m performing Surgery on Silicon.
